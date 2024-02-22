@@ -55,7 +55,7 @@ import org.junit.jupiter.api.*;
     @Test
     void whenRomanNumberIsTooLongThenException(){
         Exception exception = Assertions.assertThrows(Exception.class, () -> {
-            Converter.convertRomanToArabic("VIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+            Converter.convertRomanToArabic("VIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         });
         Assertions.assertSame(exception.getClass(), IllegalArgumentException.class);
         Assertions.assertEquals("Roman number is too long",exception.getMessage());
@@ -120,6 +120,16 @@ import org.junit.jupiter.api.*;
     }
 
     @Test
+    void whenRomanXXIIIThenArabic23() {
+        Assertions.assertEquals(23, Converter.convertRomanToArabic("XXIII"));
+    }
+
+    @Test
+    void whenRomanLIIIThenArabic53() {
+        Assertions.assertEquals(53, Converter.convertRomanToArabic("LIII"));
+    }
+
+    @Test
     void whenRomanXCThenArabic90() {
         Assertions.assertEquals(90, Converter.convertRomanToArabic("XC"));
     }
@@ -135,8 +145,22 @@ import org.junit.jupiter.api.*;
     }
 
     @Test
+    void whenRomanCDXLIXThenArabic449() {
+        Assertions.assertEquals(449, Converter.convertRomanToArabic("CDXLIX"));
+    }
+
+    @Test
+    void whenRomanCDLThenArabic450() {
+        Assertions.assertEquals(450, Converter.convertRomanToArabic("CDL"));
+    }
+
+    @Test
     void whenRomanDThenArabic500() {
         Assertions.assertEquals(500, Converter.convertRomanToArabic("D"));
+    }
+    @Test
+    void whenRomanDCThenArabic600() {
+        Assertions.assertEquals(600, Converter.convertRomanToArabic("DC"));
     }
 
     @Test
@@ -145,7 +169,87 @@ import org.junit.jupiter.api.*;
     }
 
     @Test
+    void whenRomanCMXLVThenArabic945() {
+        Assertions.assertEquals(945, Converter.convertRomanToArabic("CMXLV"));
+    }
+
+    @Test
+    void whenRomanCMXLIXThenArabic949() {
+        Assertions.assertEquals(949, Converter.convertRomanToArabic("CMXLIX"));
+    }
+
+    @Test
+    void whenRomanCMXCTHenArabic990() {
+        Assertions.assertEquals(990, Converter.convertRomanToArabic("CMXC"));
+    }
+
+    @Test
+    void whenRomanMCDXCIVThenArabic1494() {
+        Assertions.assertEquals(1494, Converter.convertRomanToArabic("MCDXCIV"));
+    }
+
+    @Test
+    void whenRomanMCDXCIXThenArabic1499() {
+        Assertions.assertEquals(1499, Converter.convertRomanToArabic("MCDXCIX"));
+    }
+
+    @Test
     void whenRomanMThenArabic1000() {
         Assertions.assertEquals(1000, Converter.convertRomanToArabic("M"));
     }
+    @Test
+    void whenRomanMMMCMXCIXThenArabic3999() {
+        Assertions.assertEquals(3999, Converter.convertRomanToArabic("MMMCMXCIX"));
+    }
+
+    @Test
+    void whenRomanMMMMThenException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Converter.convertRomanToArabic("MMMM");
+        });
+    }
+
+    @Test
+    void whenRomanIIIIThenException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Converter.convertRomanToArabic("IIII");
+        });
+    }
+
+    @Test
+    void whenRomanVVThenException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Converter.convertRomanToArabic("VV");
+        });
+    }
+
+    @Test
+    void whenRomanLLThenException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Converter.convertRomanToArabic("LL");
+        });
+    }
+
+    @Test
+    void whenRomanDDThenException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Converter.convertRomanToArabic("DD");
+        });
+    }
+
+    @Test
+    void whenRomanMMMMCMXCIXThenException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Converter.convertRomanToArabic("MMMMCMXCIX");
+        });
+    }
+
+    @Test
+    void whenRomanIIIIIXThenException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Converter.convertRomanToArabic("IIIIIX");
+        });
+    }
+
+
 }
